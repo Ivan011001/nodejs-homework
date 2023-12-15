@@ -47,8 +47,17 @@ const updateUserSubscription = Joi.object({
   }),
 });
 
+const resendVerifyEmail = Joi.object({
+  email: Joi.string().required().messages({
+    "string.base": "Email field should be a string",
+    "string.empty": "Email field cannot be empty",
+    "any.required": "Email field is required",
+  }),
+});
+
 module.exports = {
   registerSchema,
   loginSchema,
   updateUserSubscription,
+  resendVerifyEmail,
 };
